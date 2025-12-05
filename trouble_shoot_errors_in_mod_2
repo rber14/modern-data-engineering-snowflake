@@ -44,3 +44,53 @@ If your Snowflake account has multi-factor authentication
 
 For more information, read the following section in the Snowflake documentation: Use MFA caching
 .
+
+
+
+🔧 Issue 1: Snowflake CLI not creating or locating config.toml
+✅ Steps to Resolve
+
+    Default Mac behavior (as in the course recording):
+
+        File is created at ~/.snowflake/config.toml.
+
+        Check for the existence of the .snowflake folder in your home directory.
+
+    Other OS-specific paths (per Snowflake docs):
+
+        Linux: ~/.config/snowflake/config.toml (can be overridden with XDG vars).
+
+        Windows: %USERPROFILE%\AppData\Local\snowflake\config.toml.
+
+        Mac (alternative path): ~/Library/Application Support/snowflake/config.toml.
+
+    Custom path option:
+
+        Use --config-file to explicitly point Snowflake CLI to your chosen config file.
+
+    File permissions (MacOS/Linux only):
+    bash
+    chown $USER config.toml
+    chmod 0600 config.toml
+
+
+
+🔧 Issue 2: Frequent MFA prompts in Snowflake CLI
+✅ Steps to Reduce Prompts
+
+    Enable MFA caching at the account level:
+
+        Log into Snowsight with the ACCOUNTADMIN role.
+
+        Run: ALTER ACCOUNT SET ALLOW_CLIENT_MFA_CACHING = TRUE;
+
+
+    Update your config.toml:
+
+    Add the following line to your connection definition:
+        authenticator = "username_password_mfa"
+
+    Result:
+
+    Snowflake CLI will recognize your client and reduce repeated MFA prompts.
+
