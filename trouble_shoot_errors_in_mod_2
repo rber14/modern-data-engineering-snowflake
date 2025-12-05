@@ -1,0 +1,46 @@
+Troubleshooting errors encountered in Module 2
+
+The easiest way to complete the course is to open the 120-day trial account suggested in Module 1. If you decide to use a different account, you may encounter occasional errors throughout the course. Below are some of the common errors encountered throughout Module 2, and some guidance on how to resolve them.
+
+Snowflake CLI is not creating config.toml file, or I cannot locate the config.toml file
+
+The course was recorded using an Apple MacBook Pro with Sonoma 14.5 and an Apple M1 Max chip. On this computer, installing Snowflake CLI resulted in the creation of the config.toml file in a .snowflake folder located within the root directory. Specifically, the full path to the file would be ~/.snowflake/config.toml. If you're on a Mac, start by checking for the existence of config.toml at this path, or checking the existence of a ~/.snowflake folder.
+
+Otherwise, here is some guidance from the official Snowflake documentation
+
+:
+
+Snowflake CLI looks for the config.toml file in the following locations, in the following order:
+
+    If you specify the --config-file option, Snowflake CLI uses the specified configuration file.
+
+    If a ~/.snowflake directory exists on your machine, Snowflake CLI uses the ~/.snowflake/config.toml file.
+
+    Otherwise, Snowflake CLI uses the config.toml file in the one of the following locations, based on your operating system:
+
+        Linux: ~/.config/snowflake/config.toml, but you can update it with with XDG vars
+
+        Windows: %USERPROFILE%\AppData\Local\snowflake\config.toml
+
+        Mac: ~/Library/Application Support/snowflake/config.toml
+
+In addition, be sure that the file permissions are correctly configured for the file owner. For MacOS and Linux systems, Snowflake CLI requires the config.toml file to limit its file permissions to read and write for the file owner only. To set the file required file permissions execute the following commands from the terminal:
+
+chown $USER config.toml
+
+chmod 0600 config.toml
+
+Snowflake CLI requires a check for MFA authorization on every command
+
+If your Snowflake account has multi-factor authentication
+
+ (MFA) enabled (generally strongly recommended), you may encounter frequent prompts when executing Snowflake CLI commands. To reduce these prompts, you can enable MFA caching, so that Snowflake consistently recognizes and acknowledges your client – in this case, Snowflake CLI. To enable MFA caching:
+
+    Navigate to Snowsight and assume the ACCOUNTADMIN role
+
+    In a SQL worksheet, run and execute the following: ALTER ACCOUNT SET ALLOW_CLIENT_MFA_CACHING = TRUE;
+
+    Open your config.toml file and add authenticator = "username_password_mfa" to your connection's definition
+
+For more information, read the following section in the Snowflake documentation: Use MFA caching
+.
