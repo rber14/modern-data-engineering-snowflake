@@ -1,0 +1,27 @@
+# data transformation with SQL and snowpark
+https://docs.snowflake.com/en/guides-overview-queries - You don't need to read everything in this section, but it does a good job of laying out common ways of querying data in Snowflake.
+
+https://youtu.be/udcFnIvXFnE?si=prrOJZd41LO3ITvh - by Christopher Marland, Snowflake Data Superhero. In the video, Christopher uses Jupyter Notebooks, but you can also use Snowflake Notebooks.
+
+https://docs.snowflake.com/en/developer-guide/snowpark/python/index – Everything under this section is great. The "Using DataFrames" section is especially helpful and relevant. Browse the Java or Scala sections if those are your preferred programming languages.
+
+
+https://medium.com/snowflake/using-other-python-packages-in-snowpark-a6fd75e4b23a - How to bring in Python packages into a Snowpark development environment.
+
+# User defined functions and stored procedures
+https://docs.snowflake.com/en/developer-guide/udf/udf-overview - 
+
+https://select.dev/posts/snowflake-stored-procedures
+
+# streams
+https://docs.snowflake.com/en/user-guide/streams-examples -  The parent section "Streams" is excellent for more information on how Streams work "under the hood".
+
+https://www.youtube.com/watch?v=zH5umveQW_c - An excellent technical demo directly from the product manager who helped build Dynamic Tables.
+
+# dynamic tables
+https://docs.snowflake.com/en/user-guide/dynamic-tables-best-practices
+
+https://quickstarts.snowflake.com/guide/getting_started_with_dynamic_tables/
+
+# snowflake extension for visual studio code
+https://docs.snowflake.com/en/user-guide/vscode-ext
