@@ -1,0 +1,9 @@
+https://docs.snowflake.com/en/user-guide/tasks-intro -A great resource on many different aspects of Snowflake tasks. Consider the section "Triggered Tasks", which outlines new capabilities for tasks.
+
+https://select.dev/posts/snowflake-tasks -  Another great resource written by a Snowflake Data Superhero.
+
+https://docs.snowflake.com/en/developer-guide/snowflake-python-api/snowflake-python-managing-tasks - – How to use the Snowflake Python APIs to programmatically manage tasks.
+
+# sending notifications
+https://docs.snowflake.com/en/user-guide/notifications/email-notifications
+https://docs.snowflake.com/en/sql-reference/sql/create-notification-integration-email#optional-parameters
